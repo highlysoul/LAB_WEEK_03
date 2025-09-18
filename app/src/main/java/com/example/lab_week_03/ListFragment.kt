@@ -14,13 +14,7 @@ class ListFragment : Fragment(), View.OnClickListener {
         super.onAttach(context)
         if (context is CoffeeListener) {
             coffeeListener = context
-        } else {
-            throw RuntimeException("Must implement CoffeeListener")
         }
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
     }
 
     override fun onCreateView(
@@ -33,19 +27,18 @@ class ListFragment : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val coffeeList = listOf<View>(
-            view.findViewById(R.id.affogato),
-            view.findViewById(R.id.americano),
-            view.findViewById(R.id.latte)
+        val coffeeList = listOf(
+            view.findViewById<View>(R.id.affogato),
+            view.findViewById<View>(R.id.americano),
+            view.findViewById<View>(R.id.latte)
         )
-        coffeeList.forEach {
-            it.setOnClickListener(this)
-        }
+
+        coffeeList.forEach { it.setOnClickListener(this) }
     }
 
     override fun onClick(v: View?) {
-        v?.let { coffee ->
-            coffeeListener.onSelected(coffee.id)
+        v?.let {
+            coffeeListener.onSelected(it.id)
         }
     }
 }
