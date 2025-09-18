@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="20dp"
+    android:paddingTop="50dp"
     tools:context=".DetailFragment">
     <TextView
         android:id="@+id/coffee_title"
@@ -13,6 +14,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textStyle="bold"
+        android:paddingTop="50dp"
         tools:text="@string/affogato_title"/>
     <View
         android:layout_width="match_parent"
